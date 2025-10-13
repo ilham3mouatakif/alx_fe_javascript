@@ -1,49 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Quote Generator</title>
-  <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 24px; }
-    h1 { margin-bottom: 16px; }
-    #controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
-    #quoteDisplay { padding: 16px; border: 1px solid #ddd; border-radius: 8px; min-height: 72px; background: #fafafa; margin-bottom: 16px; }
-    #addQuoteContainer { margin-top: 12px; }
-    .row { display: flex; gap: 8px; margin: 8px 0; }
-    input[type="text"] { padding: 8px; border: 1px solid #ccc; border-radius: 6px; width: 100%; }
-    button { padding: 8px 12px; border-radius: 6px; border: 1px solid #ccc; background: white; cursor: pointer; }
-    button:hover { background: #f0f0f0; }
-    select { padding: 8px; border-radius: 6px; border: 1px solid #ccc; }
-    small.muted { color: #666; }
-    #notification { margin-top: 8px; color: #0a6; }
-  </style>
-  <script defer src="script.js"></script>
-  <script>
-    // Guard for older browsers where defer might not guarantee ordering
-    window.__APP_MOUNTED__ = false;
-  </script>
-</head>
-<body>
-  <h1>Dynamic Quote Generator</h1>
-  <div id="controls">
-    <button id="newQuote">Show New Quote</button>
-    <select id="categoryFilter" aria-label="Filter by category">
-      <option value="all">All Categories</option>
-    </select>
-    <button id="exportJson">Export JSON</button>
-    <label for="importFile" class="sr-only" style="position:absolute;left:-10000px;">Import JSON</label>
-    <input type="file" id="importFile" accept=".json">
-    <button id="syncNow">Sync Now</button>
-  </div>
-
-  <div id="quoteDisplay"></div>
-  <small class="muted" id="lastViewedInfo"></small>
-  <div id="notification"></div>
-
-  <div id="addQuoteContainer"></div>
-
-  <noscript>JavaScript is required to run this app.</noscript>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>RPG - Dragon Repeller</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="game">
+      <div id="stats">
+        <span class="stat">XP: <strong id="xpText">0</strong></span>
+        <span class="stat">Health: <strong id="healthText">100</strong></span>
+        <span class="stat">Gold: <strong id="goldText">50</strong></span>
+      </div>
+      <div id="controls">
+        <button id="button1">Go to store</button>
+        <button id="button2">Go to cave</button>
+        <button id="button3">Fight dragon</button>
+      </div>
+      <div id="monsterStats" class="hidden">
+        <span class="stat">Monster Name: <strong id="monsterName"></strong></span>
+        <span class="stat">Health: <strong id="monsterHealth"></strong></span>
+      </div>
+      <div id="text">
+        Welcome to Dragon Repeller. You must defeat the dragon that is
+        preventing people from leaving the town. You are in the town square.
+        Where do you want to go? Use the buttons above.
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
-
