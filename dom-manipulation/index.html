@@ -1,21 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dynamic Quote Generator</title>
-  </head>
-  <body>
-    <h1>Dynamic Quote Generator</h1>
-    <div id="quoteDisplay"></div>
-    <button id="newQuote">Show New Quote</button>
-    <button id="exportBtn">Export Quotes</button>
-    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
-    <select id="categoryFilter" onchange="filterQuotes()">
-      <option value="all">All Categories</option>
-      <!-- Dynamically populated categories -->
-    </select>
-    
-    <script src="script.js"></script>
-  </body>
-</html>
+ <!DOCTYPE html>
+  <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dynamic Quote Generator</title>
+    </head>
+    <body>
+        <h1>Dynamic Quote Generator</h1>
+        <div id="quoteDisplay"></div>
+        
+        <br>
+
+        <button id="newQuote">Show New Quote</button>
+
+        <br><br>
+       
+        <div>
+            <select id="categoryFilter" onchange="filterQuotes()">
+                <option value="all">All Categories</option>
+                <!-- Dynamically populated categories -->
+            </select>
+        </div>
+
+        <br><br>
+
+        <div>
+            <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
+            <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
+            <button onclick="addQuote()">Add Quote</button>
+        </div>
+
+        <br>
+
+        <div>
+            <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+        </div>
+
+        <br>
+
+        <div>
+            <button id="exportQoutes" onclick="exportQoutes()">Export Quotes</button>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+  </html>
