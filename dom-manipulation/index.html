@@ -1,54 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dynamic Quote Generator</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Quote Generator</title>
+  </head>
+  <body>
     <h1>Dynamic Quote Generator</h1>
-
-    <div class="controls">
-      <button id="newQuote">Show New Quote</button>
-      <button id="syncNow">Sync Now</button>
-      <button id="exportBtn">Export Quotes</button>
-      <input type="file" id="importFile" accept=".json" />
-    </div>
-
-    <div class="filter-row">
-      <label for="categoryFilter">Filter by category:</label>
-      <select id="categoryFilter">
-        <option value="all">All Categories</option>
-      </select>
-    </div>
-
-    <div id="quoteDisplay" class="quote-display"></div>
-
-    <!-- Add Quote Form (also created dynamically by script but here for progressive enhancement) -->
-    <div id="addQuoteArea" class="add-quote-area">
-      <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
-      <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
-      <button id="addQuoteBtn">Add Quote</button>
-    </div>
-
-    <!-- Sync status & conflict notification -->
-    <div id="statusBar" class="status-bar">Status: <span id="sync-status">Idle</span></div>
-
-    <div id="conflictNotice" class="conflict-notice hidden">
-      <p id="conflictMessage"></p>
-      <div class="conflict-actions">
-        <button id="useServerBtn">Use Server Data</button>
-        <button id="keepLocalBtn">Keep Local Data</button>
-        <button id="mergeBtn">Merge (union)</button>
-      </div>
-    </div>
-
-    <p class="hint">Last viewed quote in this session is saved (sessionStorage).</p>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+    <div id="quoteDisplay"></div>
+    <button id="newQuote">Show New Quote</button>
+    <button id="exportBtn">Export Quotes</button>
+    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+    <select id="categoryFilter" onchange="filterQuotes()">
+      <option value="all">All Categories</option>
+      <!-- Dynamically populated categories -->
+    </select>
+    
+    <script src="script.js"></script>
+  </body>
 </html>
-
